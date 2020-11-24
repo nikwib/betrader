@@ -1,17 +1,23 @@
+import "../styles/globals.css";
 import useSWR, { SWRConfig } from "swr";
-
+import { ThemeProvider } from "theme-ui";
+import theme from "../theme";
+import Nav from "../src/components/nav";
 
 function MyApp({ Component, pageProps }) {
   return (
     <>
       <SWRConfig
         value={{
-          refreshInterval: 30000,
+          refreshInterval: 3000000,
           fetcher: (resource, init) =>
             fetch(resource, init).then((res) => res.json()),
         }}
       >
-        <Component {...pageProps} />
+        <ThemeProvider theme={theme}>
+           <Nav></Nav>
+          <Component {...pageProps} />
+        </ThemeProvider>
       </SWRConfig>
     </>
   );

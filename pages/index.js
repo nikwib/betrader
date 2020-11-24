@@ -3,7 +3,6 @@ import Link from "next/link";
 import StocksOverMA200 from "./ma200/StocksOverMA200";
 
 const App = () => {
-  console.log('env', process.env.BD_API_KEY);
   return (
     <div>
       <ul>
@@ -21,7 +20,11 @@ const App = () => {
           <Link href="/ma200">
             <a>MA200</a>
           </Link>
-          <StocksOverMA200 />
+        </li>
+        <li>
+          <Link href="/ma200ss">
+            <a>MA200 ss</a>
+          </Link>
         </li>
       </ul>
     </div>
